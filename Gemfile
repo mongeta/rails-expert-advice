@@ -16,15 +16,17 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'doorkeeper'
 
 # API
-gem 'rack-cors'
+gem 'rack-cors', git: 'https://github.com/mongeta/rack-cors/', branch: 'fix/hard_expose_headers'
 gem 'active_model_serializers'
 gem 'validates_email_format_of'
 gem 'api-pagination'
+gem 'pagy'
 
 group :development, :test do
   gem 'pry'
   gem 'rspec-rails'
   gem 'rubocop'
+  gem 'annotate'
 end
 
 group :development do
@@ -32,4 +34,9 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'byebug'
 end
+
+# added GEMS
+  gem 'faker' # we use globally because we're going to use it in production for generating the seeds
+
