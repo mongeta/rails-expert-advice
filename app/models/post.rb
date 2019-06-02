@@ -104,12 +104,22 @@ class Post < ApplicationRecord
   end
 
   def answers_count_update(how_many = 1)
+<<<<<<< HEAD
     # question.update_columns(views_count: question.views_count + how_many, answers_count: question.answers_count + how_many)
     question.update_columns(answers_count: question.answers_count + how_many)
   end
 
   def view_count_update(how_many = 1)
     question.views_count += how_many
+=======
+    # maybe it will be better to use the rails cache
+    question.increment(:answers_count, how_many)
+    question.save(validate: false)
+  end
+
+  def view_count_update
+    question.increment(:views_count)
+>>>>>>> feature/improvements
   end
 
   def after_save_default
@@ -117,6 +127,10 @@ class Post < ApplicationRecord
       update_tags # only questions have tags
     elsif id_previously_changed?
       answers_count_update(1)
+<<<<<<< HEAD
+=======
+
+>>>>>>> feature/improvements
     end
   end
 

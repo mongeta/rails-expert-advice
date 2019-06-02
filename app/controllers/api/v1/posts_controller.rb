@@ -60,8 +60,7 @@ module Api
       def post_params
         params.require(:data).require(:attributes).permit(:id, :title, :body, :tags_manual)
       end
-
-      def update_view_count; end
+      
     end
   end
 end

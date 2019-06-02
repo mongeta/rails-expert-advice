@@ -19,6 +19,10 @@ namespace :data do
         p.tags_manual = tags.sample(rand(1..4)).join(',')
 
         p.user = users[rand(0..users.size-1)]
+<<<<<<< HEAD
+=======
+        p.account = p.user.accounts.first
+>>>>>>> feature/improvements
 
         if p.save
           # add some answers, but not to all of them
@@ -30,13 +34,20 @@ namespace :data do
             rand(2..10).times do |index_replay|
 
               replay = Post.new do |r|
+<<<<<<< HEAD
                 r.title = "#{p.title}-#{index_replay}"
+=======
+>>>>>>> feature/improvements
 
                 r.body = Faker::Quote.matz
 
                 r.tags_manual = nil
 
                 r.user = users[rand(0..users.size-1)]
+<<<<<<< HEAD
+=======
+                r.account = r.user.accounts.first
+>>>>>>> feature/improvements
 
                 r.question_id = p.id
 
